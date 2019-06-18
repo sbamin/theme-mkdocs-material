@@ -6,6 +6,10 @@
 <!-- Extrahead -->
 {% block extrahead %}
 
+  {% if page and page.meta and page.meta.keywords %}
+    <meta name="keywords" content="{{ page.meta.keywords }}">
+  {% endif %}
+
   <meta property="og:url" content="{{ page.canonical_url }}">
   {% if page and page.meta and page.meta.title %}
     <meta property="og:title" content="{{ page.meta.title }}">

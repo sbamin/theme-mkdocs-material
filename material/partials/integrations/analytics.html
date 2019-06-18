@@ -1,12 +1,12 @@
 {#-
   This file was automatically generated - do not edit
 -#}
-{%- set analytics = config.google_analytics -%}
+{% set analytics = config.google_analytics %}
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64053990-2"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-64053990-2');
+  gtag('config', '{{ analytics[0] }}');
 </script>
