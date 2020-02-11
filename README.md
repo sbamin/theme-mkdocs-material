@@ -1,3 +1,43 @@
+## Note
+
+This is a forked version of [squidfunk/mkdocs-material](https://github.com/squidfunk/mkdocs-material) and used to host [https://canineglioma.verhaaklab.com](https://canineglioma.verhaaklab.com). I am unlikely to update this code on regular basis. Please report issues related to theme directly at [squidfunk/mkdocs-material issue page](https://github.com/squidfunk/mkdocs-material/issues).
+
+Visit [TheJacksonLaboratory/canineglioma](https://github.com/TheJacksonLaboratory/canineglioma) on how-to build and deploy MkDocs built website. Look for [mkdocs.yml](https://github.com/TheJacksonLaboratory/canineglioma/blob/master/mkdocs.yml) for configuration, and [build_methods.sh](https://github.com/TheJacksonLaboratory/canineglioma/blob/master/build_methods.sh) and [serve_test_local.sh](https://github.com/TheJacksonLaboratory/canineglioma/blob/master/serve_test_local.sh) scripts in root directory.
+
+### Installation
+
+I'd used following setup to install MkDocs and additional plugins. Make sure to follow updated documentation, if any at [squidfunk/mkdocs-material](https://github.com/squidfunk/mkdocs-material).
+
+>Prefer python 3.7.3 or higher version.
+
+```sh
+pip install mkdocs
+## Alternate (unused) via conda
+## conda install mkdocs
+
+##### Theme #####
+## https://squidfunk.github.io/mkdocs-material/
+pip install mkdocs-material
+
+#### Extensions ####
+### pymdown-extensions ###
+## requirements
+pip install markdown
+pip install pygments
+pip install fontawesome_markdown
+## install
+pip install pymdown-extensions
+
+#### Plugins ####
+pip install mkdocs-git-revision-date-plugin
+pip install mkdocs-git-revision-date-localized-plugin
+pip install mkdocs-minify-plugin
+```
+
+***
+
+Original README
+
 [![Travis][travis-image]][travis-link]
 [![Downloads][downloads-image]][downloads-link]
 [![Gitter][gitter-image]][gitter-link]

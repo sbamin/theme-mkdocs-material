@@ -25,8 +25,8 @@
       {% elif page.canonical_url %}
         <link rel="canonical" href="{{ page.canonical_url }}">
       {% endif %}
-      {% if page and page.meta and page.meta.author %}
-        <meta name="author" content="{{ page.meta.author | first }}">
+      {% if page and page.meta and page.meta.authors %}
+        <meta name="author" content="{{ page.meta.authors }}">
       {% elif config.site_author %}
         <meta name="author" content="{{ config.site_author }}">
       {% endif %}
@@ -111,7 +111,8 @@
       <defs>
         {% set platform = config.extra.repo_icon or config.repo_url %}
         {% if "github" in platform %}
-          {% include "assets/images/icons/github.f0b8504a.svg" %}
+          <!-- {% include "assets/images/icons/github.f0b8504a.svg" %} -->
+          {% include "assets/images/icons/github-svg-icon.svg" %}
         {% elif "gitlab" in platform %}
           {% include "assets/images/icons/gitlab.6dd19c00.svg" %}
         {% elif "bitbucket" in platform %}
@@ -164,13 +165,16 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               {% block content %}
-                {% if page.edit_url %}
+                <!-- enable git edit link only if config.repo_edit is set to true -->
+                {% if page.edit_url and config.repo_edit %}
                   <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon">&#xE3C9;</a>
                 {% endif %}
                 {% if not "\x3ch1" in page.content %}
                   <h1>{{ page.title | default(config.site_name, true)}}</h1>
                 {% endif %}
+                  {% include "partials/integrations/authors.html" %}
                 {{ page.content }}
+                {% include "partials/integrations/last_modified.html" %}
                 {% block source %}
                   {% if page and page.meta and page.meta.source %}
                     <h2 id="__source">{{ lang.t("meta.source") }}</h2>
