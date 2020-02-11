@@ -25,8 +25,8 @@
       {% elif page.canonical_url %}
         <link rel="canonical" href="{{ page.canonical_url }}">
       {% endif %}
-      {% if page and page.meta and page.meta.author %}
-        <meta name="author" content="{{ page.meta.author | first }}">
+      {% if page and page.meta and page.meta.authors %}
+        <meta name="author" content="{{ page.meta.authors }}">
       {% elif config.site_author %}
         <meta name="author" content="{{ config.site_author }}">
       {% endif %}
@@ -172,6 +172,7 @@
                 {% if not "\x3ch1" in page.content %}
                   <h1>{{ page.title | default(config.site_name, true)}}</h1>
                 {% endif %}
+                  {% include "partials/integrations/authors.html" %}
                 {{ page.content }}
                 {% include "partials/integrations/last_modified.html" %}
                 {% block source %}
